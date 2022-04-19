@@ -14,10 +14,10 @@ const Tabs = (topics) => {
   // </div>
   //
   const topicsWrapper = document.createElement('div');
-  for(let i = 0; i < topics.topics.length; i++) {
+  for(let i = 0; i < topics.length; i++) {
     const tabE = document.createElement('div');
     tabE.classList.add("tab");
-    tabE.textContent = topics.topics[i];
+    tabE.textContent = topics[i];
 
     topicsWrapper.appendChild(tabE);
   };
@@ -38,7 +38,8 @@ const tabsAppender = (selector) => {
   .then(response => response.json()   
   )
   .then(data => {
-    const tabs = Tabs(data);
+    console.log(data)
+    const tabs = Tabs(data.topics);
     tabsC.appendChild(tabs);
   }) 
   return tabsC
